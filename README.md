@@ -1,25 +1,25 @@
 # easyKPlot
 MATLAB基础绘图美化
 
-easyKPlot.m
+1-easyKPlot.m
 美化主函数
 
-KPlotColorMap.m
+2-KPlotColorMap.m
 绘图配色方案
 
-functionSignatures.json
+3-functionSignatures.json
 函数代码自动填充文件
 
-k_plot_test.m
+4-k_plot_test.m
 使用示例
 
-manual.pdf
+5-manual.pdf
 说明手册
 
 .png
 原始绘图及美化绘图
 
-请保证easyKPlot.m与KPlotColorMap.m文件位于同一路径下
+请保证文件1,2,3位于同一路径下
 
 建议将easyKPlot所在路径添加到MATLAB默认搜索路径下
 
