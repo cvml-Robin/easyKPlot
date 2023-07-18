@@ -6,7 +6,7 @@ function easyKPlot(fig,varargin)
     addOptional(p,"margindown",0);
     addOptional(p,"margintop",0);
     addOptional(p,"fontsize",22);
-    addOptional(p,"fontname","Calibri");
+    addOptional(p,"fontname","Times New Roman");
     addOptional(p,"fontweight","bold");
     addOptional(p,"color_num","auto");
     addOptional(p,"color_map_id",5);
@@ -16,6 +16,8 @@ function easyKPlot(fig,varargin)
     addOptional(p,"partial_enlarge",false);
     addOptional(p,"rect_info",0);
     addOptional(p,"markersize",8);
+    addOptional(p,"plot_linewidth",2);
+    addOptional(p,"axes_linewidth",1.5);
     parse(p,varargin{:});
     marginleft = p.Results.marginleft;
     marginright = p.Results.marginright;
@@ -32,6 +34,8 @@ function easyKPlot(fig,varargin)
     markersize = p.Results.markersize;
     partial_enlarge = p.Results.partial_enlarge;
     rect_info = p.Results.rect_info;
+    axes_linewidth = p.Results.axes_linewidth;
+    plot_linewidth = p.Results.plot_linewidth;
     marker_tbl = ["o";"*";"^";"h";">";"s";"<";"x";"p";"diamond"];
     linestyle_tbl = ["-";"--";"-.";":"];
     for fig_child_id = 1:length(fig.Children)
@@ -39,11 +43,13 @@ function easyKPlot(fig,varargin)
         fig_child_class = class(now_child);
         fig_child_class = regexprep(...
             fig_child_class,...
-            "(axis)|(matlab)|(graphics)|(chart)|(primitive)|(layout)|[.]",...
+            "(axis)|(matlab)|(graphics)|(illustration)|(chart)|(primitive)|(layout)|[.]",...
             "");
         
         if fig_child_class == "Axes"
             do_axes(now_child);
+        elseif fig_child_class == "Legend"
+            set(now_child,"Orientation","Horizontal");
         elseif fig_child_class == "TiledChartLayout"
             for sub_ci = 1:length(now_child.Children)
                 sub_obj = now_child.Children(sub_ci);
@@ -64,7 +70,7 @@ function easyKPlot(fig,varargin)
     function do_axes(ax_obj)
         set(ax_obj,...
             'box','on',...
-            'linewidth',1.5,...
+            'linewidth',axes_linewidth,...
             'fontsize',fontsize,...
             'fontname',fontname,...
             'fontweight',fontweight);
@@ -91,7 +97,7 @@ function easyKPlot(fig,varargin)
                 marker_id = mod(non_area_k-1,length(marker_tbl))+1;
                 linestyle_id = mod(non_area_k-1,length(linestyle_tbl))+1;
                 set(plot_line(ii), ...
-                    'linewidth',2, ...
+                    'linewidth',plot_linewidth, ...
                     'color',color_map(mod(non_area_k-1,size(color_map,1))+1,:),...
                     'marker',marker_tbl(marker_id),...
                     'linestyle',linestyle_tbl(linestyle_id),...
