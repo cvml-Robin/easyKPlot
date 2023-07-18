@@ -1,0 +1,25 @@
+{
+	"_schemaVersion": "1.0.0",
+	"easyKPlot":
+	{
+		"inputs":
+		[
+			{"name":"fig", "kind":"required", "type":["matlab.ui.Figure"], "purpose":"figure"},
+			{"name":"plot_linewidth", "kind":"namevalue", "type":["numeric"], "purpose":"curve line width"},
+			{"name":"axes_linewidth", "kind":"namevalue", "type":["numeric"], "purpose":"line width of axes"},
+			{"name":"markersize", "kind":"namevalue", "type":["numeric"], "purpose":"marker size"},
+			{"name":"marginleft", "kind":"namevalue", "type":["numeric"], "purpose":"left margin of line and axes"},
+			{"name":"marginright", "kind":"namevalue", "type":["numeric"], "purpose":"right margin of line and axes"},
+			{"name":"margintop", "kind":"namevalue", "type":["numeric"], "purpose":"top margin of line and axes"},
+			{"name":"margindown", "kind":"namevalue", "type":["numeric"], "purpose":"down margin of line and axes"},
+			{"name":"fontname", "kind":"namevalue", "type":["string", "char"], "purpose":"font family of axes"},
+			{"name":"fontsize", "kind":"namevalue", "type":["numeric"], "purpose":"fontsize of axes"},
+			{"name":"fontweight", "kind":"namevalue", "type":["char", "choices={'bold','normal'}"]},
+			{"name":"data_down_sample","kind":"namevalue","type:":["logical", "choices={true, false}"], "purpose":"use down sample"},
+			{"name":"data_down_n","kind":"namevalue","type":["numeric"], "purpose":"length(data) after down sampling"},
+			{"name":"color_num", "kind":"namevalue", "type":["numeric", "string", "char", "choices={'auto'}"]},
+			{"name":"color_map_id","kind":"namevalue", "type":["numeric"], "purpose":"id of color map"},
+			{"name":"color_mode", "kind":"namevalue", "type":["char", "string", "choices={'origin', 'interp'}"]}
+		]
+	}
+}
