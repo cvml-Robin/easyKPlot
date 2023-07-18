@@ -15,3 +15,6 @@ manual.pdf
 
 .png
 原始绘图及美化绘图
+
+请保证easyKPlot.m与KPlotColorMap.m文件位于同一路径下
+建议将easyKPlot所在路径添加到MATLAB默认搜索路径下
